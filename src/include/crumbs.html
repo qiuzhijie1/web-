@@ -1,0 +1,12 @@
+<!-- crumbs START -->
+<div class="crumbs">
+    <div class="crumbs_list flex flex_column_center">
+        <span>当前位置：</span>
+        <a href="index.html">首页</a>
+
+        @@for (var i = 0; i < context.crumbsLength; i++) { <span class="iconfont iconjiantouyou-copy"></span>
+            <a href="`+context.crumbsList[i].url+`">`+context.crumbsList[i].text+`</a>
+            }
+    </div>
+</div>
+<!-- crumbs END -->

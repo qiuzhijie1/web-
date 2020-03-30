@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title>public</title>
+    @@include("./include/resource.html")
+    <link rel="stylesheet" href="css/aspect.css">
+</head>
+
+<body>
+    <!-- header 头部 | footer 底部 | nav 导航 | main 主体内容[container] | aside 侧边栏 | section 区域块 | article 独立块 -->
+
+
+    @@include("./include/header.html")
+
+
+    @@include("./include/crumbs.html", {
+    "crumbsLength": "3",
+    "crumbsList": [{
+    "url": "111",
+    "text": "111"
+    }, {
+    "url": "222",
+    "text": "222"
+    }, {
+    "url": "javascript:;",
+    "text": "333"
+    }]
+    })
+
+
+    <!-- inside_main START -->
+    <main class="inside_main">
+        <section class="main1">
+            <div class="center">
+
+            </div>
+        </section>
+    </main>
+    <!-- inside_main END -->
+
+
+
+    @@include("./include/page.html")
+
+
+
+
+    <!-- 电话 -->
+    联系电话：<a href="tel:010-88888888" rel="nofollow">010-88888888</a>
+
+    <!-- 邮箱 -->
+    联系邮箱：<a href="mailto:xxx@163.com" rel="nofollow">xxx@163.com</a>
+
+    <!-- QQ在线咨询 -->
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=728106945&site=qq&menu=yes" target="_blank">QQ咨询</a>
+
+
+
+
+    @@include("./include/footer.html")
+
+
+
+</body>
+
+</html>

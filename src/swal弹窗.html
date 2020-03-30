@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        width: 1200px;
+        margin: 0 auto;
+        padding-top: 200px;
+    }
+
+    .button {
+        width: 100px;
+        height: 40px;
+        outline: none;
+        background-color: #a3dd82;
+        color: #ffffff;
+        border-radius: 10px;
+        font-size: 25px;
+        border: 0;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #98d973;
+    }
+
+</style>
+
+<body>
+    <button id="test" class="button" style="background-color:#DC143C;">TEST</button>
+
+    <button id="pikaqiu" class="button">探草丛</button>
+
+
+
+
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <script>
+        $("#test").click(function () {
+            swal({
+                title: "Good job!",   //标题
+
+                text: "You clicked the button!",    //内容
+
+                // buttons: true,  //ture为显示所有按钮，false为隐藏所有按钮
+
+                closeOnClickOutside: false,   //点击弹窗外是否可以关闭弹窗
+
+                closeOnEsc: false,  //ESC是否可以关闭弹窗
+
+                content: "input",   //输入内容
+
+                // dangerMode: true,//true则确认按钮变为红色，并且默认焦点设置为取消按钮。这在显示确认方式很危险的警告模式（例如删除项目）时非常方便。
+
+                timer: 3000,   //规定时间后消失单位毫秒
+
+                type: "info",
+
+                icon: "info",  // 图标  success成功，warning警告，error错误，info次级提示
+
+                // button: "Aww yiss!",  //单一触发按钮，可自定义多个，并且触发不同函数
+
+                confirmButtonText: "提交！",  //成功按钮（）
+
+                cancelButtonText: "取消",   //取消按钮（）
+
+            });
+
+        });
+
+        $("#pikaqiu").click(function () {
+
+            swal("出现了一只野生的皮卡丘! 你要做什么?", {
+
+                icon: "warning",
+
+
+                buttons: {
+                    cancel: "逃跑!",
+                    catch: {
+                        text: "使用精灵球",
+                        value: "catch",
+                    },
+                    战斗: true,
+                },
+            })
+                .then((value) => {
+                    switch (value) {
+
+                        case "战斗":
+                            swal("皮卡丘倒下了! 你获得了 500 XP!");
+                            break;
+
+                        case "catch":
+                            swal("完美!", "皮卡丘被抓住了!", "success");
+                            break;
+
+                        default:
+                            swal("安全逃跑!");
+                    }
+                });
+        });
+    </script>
+</body>
+
+</html>

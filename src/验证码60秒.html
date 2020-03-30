@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    html,
+    body,
+    ul,
+    li,
+    ol,
+    dl,
+    dd,
+    dt,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    form,
+    img {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    a {
+        color: #666;
+        text-decoration: none;
+    }
+
+    h3 {
+        margin: 0 auto;
+        width: 750px;
+        margin-top: 200px;
+    }
+
+    .addCode {
+        width: 50%;
+        height: 50px;
+        line-height: 50px;
+        border: none;
+        background: #ed7831;
+        border-radius: 10px;
+        color: #fff;
+        box-shadow: 0 0 5px #ed7831;
+        font-size: 20px;
+        margin: 20px auto;
+    }
+</style>
+
+<body>
+
+
+    <button class="addCode" type="button">获取验证码</button>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        /*点击获取验证码*/
+        $(".addCode").click(function (event) {
+            var addCode = $(".addCode")
+            verificationCode(addCode);
+        });
+        /*验证码的方法*/
+        function verificationCode(name) {  //参数保存
+            var num = 60;
+            var timer = setInterval(function () {  //开始周期性循环
+                num--;
+                name.attr("disabled", "disabled").html(num + '秒后重试');
+                console.log(num);
+                if (num == 0) {
+                    clearInterval(timer);  //满足条件后结束周期调用
+                    name.attr("disabled", false).html("重新获取");
+                }
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>

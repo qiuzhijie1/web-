@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ui,
+    li {
+        list-style: none;
+    }
+
+    #news {
+        height: 100px;
+        overflow: hidden;
+        width: 300px;
+        border: solid 1px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div id="news">
+        <ul>
+            <li>恭喜覃**获得法拉利一辆</li>
+            <li>恭喜黄**获得戒指一枚</li>
+            <li>恭喜董**获得创口贴一箱</li>
+            <li>恭喜梁**获得哇哈哈一辆</li>
+            <li>恭喜蓝**获得感冒药一辆</li>
+            <li>恭喜蓝**获得感冒药一辆</li>
+            <li>恭喜董**获得创口贴一箱</li>
+            <li>恭喜梁**获得哇哈哈一辆</li>
+            <li>恭喜蓝**获得感冒药一辆</li>
+            <li>恭喜蓝**获得感冒药一辆</li>
+            <li>恭喜董**获得创口贴一箱</li>
+            <li>恭喜梁**获得哇哈哈一辆</li>
+            <li>恭喜蓝**获得感冒药一辆</li>
+            <li>恭喜蓝**获得感冒药一辆</li>
+            <li>恭喜董**获得创口贴一箱</li>
+            <li>恭喜梁**获得哇哈哈一辆</li>
+            <li>恭喜蓝**获得感冒药一辆</li>
+            <li>恭喜蓝**获得感冒药一辆</li>
+        </ul>
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var $this = $("#news");
+            var scrollTimer;
+            $this.hover(function () {
+                clearInterval(scrollTimer);
+            }, function () {
+                scrollTimer = setInterval(function () {
+                    scrollNews($this);
+                }, 2000);
+            }).trigger("mouseleave");  //触发指定元素的指定事件
+
+            function scrollNews(obj) {
+                var $self = obj.find("ul");
+                var lineHeight = $self.find("li:first").height();
+
+                $self.animate({  //动画效果逐渐改变
+                    "marginTop": -lineHeight + "px"
+                }, 500, function () {
+                    $self.css({
+                        marginTop: 0
+                    }).find("li:first").appendTo($self); //在指定元素结尾插入指定内容
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

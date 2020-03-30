@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+    <title>首页</title>
+    @@include("./include/resource.html")
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    @@include("./include/header.html", {
+    "index": "active"
+    })
+    <main class="index">
+
+        @@include("./include/index_main1.html")
+        <div class="center1160 clear_float">
+            @@include("./include/上下公告滚动.html")
+            @@include("./include/index_main2.html")
+            @@include("./include/index_main3.html")
+            @@include("./include/index_main4.html")
+            @@include("./include/index_main5.html")
+            @@include("./include/index_main4.html")
+            @@include("./include/index_main5.html")
+            @@include("./include/index_main2.html")
+            @@include("./include/index_main6.html")
+        </div>
+    </main>
+    @@include("./include/trademark_pop.html")
+    @@include("./include/picture_pop.html")
+    @@include("./include/footer.html")
+    @@include("./include/right_monu.html")
+
+
+    <script>
+        new Swiper('.main3 .swiper-container', {
+            autoplay: 5000,//可选选项，自动滑动
+            pagination: '.main3 .swiper-pagination',
+            paginationClickable: true,
+        })
+
+        new Swiper('.main6 .swiper-container', {
+            autoplay: 1,//可选选项，自动滑动
+            paginationClickable: true,
+            speed:2500,
+            slidesPerView: 7,
+            loop : true,
+            autoplayDisableOnInteraction:false
+        })
+
+        $(".picture_click").click(function () {
+            $(".picture_pop").show();
+        })
+        $(".trademark_click").click(function () {
+            $(".trademark_pop").show();
+        })
+        $('.exit').click(function () {
+            exit();
+        })
+        function exit() {
+            $(".trademark_pop").hide();
+            $(".picture_pop").hide();
+        }
+    </script>
+
+</body>
+
+</html>
